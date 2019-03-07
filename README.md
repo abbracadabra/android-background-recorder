@@ -5,4 +5,4 @@
 - use new camera2 api instead of old api.
 - absolutely no sound.
 - you can configure framerate and bitrate.
-- support simultaneous recording using both front and back cameras.(well..,i only said 'support' because it depends on whether your device can support this also.AFAIK,most devices don't support that because they only have one camera image processor shared by both cameras)
+- support simultaneous recording using both front and back cameras.(the code support this feathre but whether this's gonna work also depends on whether your device can support this.AFAIK,most devices don't support that because they only have one camera image processor shared by both cameras)
