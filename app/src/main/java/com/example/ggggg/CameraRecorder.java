@@ -28,7 +28,7 @@ public class CameraRecorder {
     CameraManager manager = MainActivity.manager;
 
     public String cameraid;
-    public boolean isfree = false;
+    public boolean isfree;
     public boolean isrecording;
     public boolean isConnected;
     Looper looper;

@@ -58,18 +58,14 @@ public class MainActivity extends AppCompatActivity {
         askPermissionCamera();
         init();
 
-
         callback = new CameraAvalabilityCallback();
         manager.registerAvailabilityCallback(callback,null);
-
-        /*Intent intent = new Intent(MainActivity.this, CameraService.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startService(intent);*/
     }
 
     private void init() {
         try {
-            writeConfig();
+            initPref();
+            setConf();
             config = (JSONObject) JSONObject.parse(PreferenceManager.getDefaultSharedPreferences(this).getString("config",""));
             checkDirExistence();
             JSONObject cas = config.getJSONObject("cameras");
@@ -80,11 +76,13 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
-    private void writeConfig() {
+    public static void setConf(){
+        config = (JSONObject) JSONObject.parse(PreferenceManager.getDefaultSharedPreferences(context).getString("config",""));
+    }
+
+    private void initPref() {
         try{
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             String _x = prefs.getString("config", "");

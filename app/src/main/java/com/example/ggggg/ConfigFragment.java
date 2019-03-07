@@ -23,9 +23,8 @@ public class ConfigFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view,Bundle savedInstanceState) {
-        JSONObject conf = MainActivity.config;
         final EditText et = (EditText)view.findViewById(R.id.config_editor);
-        et.setText(JSON.toJSONString(conf,true));
+        et.setText(JSON.toJSONString(MainActivity.config,true));
 
         Button bt = (Button) view.findViewById(R.id.save);
         bt.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +34,7 @@ public class ConfigFragment extends Fragment {
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.putString("config", et.getText().toString());
                 editor.apply();
+                MainActivity.setConf();
             }
         });
     }
