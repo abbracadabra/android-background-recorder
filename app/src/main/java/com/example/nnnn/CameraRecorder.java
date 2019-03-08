@@ -1,4 +1,4 @@
-package com.example.ggggg;
+package com.example.nnnn;
 
 import android.annotation.SuppressLint;
 import android.hardware.camera2.CameraAccessException;
@@ -168,7 +168,7 @@ public class CameraRecorder {
             mMediaRecorder.setMaxFileSize(0);
             mMediaRecorder.setOrientationHint(0);
             File outputfile = new File(MainActivity.savedir,new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss-SSS'.mp4'").format(new Date()));
-            mMediaRecorder.setOutputFile(outputfile);
+            mMediaRecorder.setOutputFile(outputfile.getCanonicalPath());
             outputfile.createNewFile();
             mMediaRecorder.prepare();
             mMediaRecorder.start();

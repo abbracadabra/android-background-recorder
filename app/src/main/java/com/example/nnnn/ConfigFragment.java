@@ -1,4 +1,4 @@
-package com.example.ggggg;
+package com.example.nnnn;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 
 public class ConfigFragment extends Fragment {
 

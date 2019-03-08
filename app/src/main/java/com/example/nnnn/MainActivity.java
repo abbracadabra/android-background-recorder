@@ -1,10 +1,9 @@
-package com.example.ggggg;
+package com.example.nnnn;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.SurfaceTexture;
@@ -21,11 +20,13 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Size;
 import android.view.MenuItem;
+
 import com.alibaba.fastjson.JSONObject;
+
 import java.io.File;
-import java.nio.file.Paths;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             }
             SharedPreferences.Editor editor = prefs.edit();
             JSONObject _config = new JSONObject();
-            _config.put("savedir", Paths.get(Environment.getExternalStorageDirectory().getAbsolutePath(), "000000").toString());
+            _config.put("savedir", new File(Environment.getExternalStorageDirectory().getAbsolutePath(),"000000").getCanonicalPath());
             JSONObject camopt = new JSONObject();
             _config.put("cameras", camopt);
             String[] cameraids = manager.getCameraIdList();
@@ -120,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                     Size size = sizes[i];
                     _ss[i] = String.valueOf(size.getWidth())+"*"+String.valueOf(size.getHeight());
                 }
-                _c.put("sizes",String.join(",", _ss));
+                _c.put("sizes",TextUtils.join(",", _ss));
             }
             String jstr = _config.toJSONString();
             editor.putString("config", jstr);
@@ -201,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(
                     this,
-                    new String[]{android.Manifest.permission.CAMERA,android.Manifest.permission.RECORD_AUDIO,Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    new String[]{Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO,Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     1);
         }
     }
