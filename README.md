@@ -6,3 +6,4 @@
 - absolutely no sound.
 - you can configure framerate and bitrate.
 - support simultaneous recording using both front and back cameras.(the code support this feathre but whether this's gonna work also depends on whether your device can support this.AFAIK,most devices don't support that because they only have one camera image processor shared by both cameras)
+- compatible with api level 25-27
