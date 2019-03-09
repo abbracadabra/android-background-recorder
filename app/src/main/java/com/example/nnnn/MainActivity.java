@@ -110,10 +110,10 @@ public class MainActivity extends AppCompatActivity {
                 _c.put("framerate", "30");
                 _c.put("bitrate", "1000000");
                 if (CameraCharacteristics.LENS_FACING_FRONT == ccs.get(CameraCharacteristics.LENS_FACING)) {
-                    _c.put("cameraname", "前置" + cameraid);
+                    _c.put("cameraname", "front" + cameraid);
                 }
                 if (CameraCharacteristics.LENS_FACING_BACK == ccs.get(CameraCharacteristics.LENS_FACING)) {
-                    _c.put("cameraname", "后置" + cameraid);
+                    _c.put("cameraname", "back" + cameraid);
                 }
 
                 String[] _ss = new String[sizes.length];
