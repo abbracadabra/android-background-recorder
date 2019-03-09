@@ -105,10 +105,10 @@ public class MainActivity extends AppCompatActivity {
                 Size[] sizes = scm.getOutputSizes(SurfaceTexture.class);
                 JSONObject ss = new JSONObject();
                 _c.put("selectedsize", ss);
-                ss.put("width", String.valueOf(sizes[0].getWidth()));
-                ss.put("height", String.valueOf(sizes[0].getHeight()));
+                ss.put("width", "1280");
+                ss.put("height", "960");
                 _c.put("framerate", "30");
-                _c.put("bitrate", "1000000");
+                _c.put("bitrate", "2000000");
                 if (CameraCharacteristics.LENS_FACING_FRONT == ccs.get(CameraCharacteristics.LENS_FACING)) {
                     _c.put("cameraname", "front" + cameraid);
                 }
